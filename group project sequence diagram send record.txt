@@ -1,0 +1,40 @@
+made at: 
+https://www.websequencediagrams.com/
+
+text for recration:
+title Sequence diagram for picked new record
+
+note over Android UI: (Screen)
+
+Android UI->+activityMain:Start App
+activityMain->activityMain:check if existing user
+activityMain->+Android UI:Display Options
+
+alt Menu Options
+Android UI->activityMain: Choose new record
+
+else 
+    Android UI->activityMain: Choose edit record
+
+else 
+Android UI->activityMain: Choose send record
+note right of activityMain
+    Option Picked
+end note
+end
+activityMain<-->manageSQLite:Get records.
+activityMain-->Android UI: Display records.
+Android UI-->activityMain: Pick record.
+
+activityMain-->+MIME: Make new Mime Message
+
+alt Internet Connection
+MIME->Android SYSTEM: check for connection
+Android SYSTEM->MIME: there is connection
+MIME->Network: Upload/Send
+else No Connection
+MIME->Android SYSTEM: check for connection
+Android SYSTEM->MIME: there is not connection
+MIME->MIME: Not Connection
+MIME->-MIME: Save in "To send"
+end

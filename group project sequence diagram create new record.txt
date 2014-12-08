@@ -1,0 +1,54 @@
+made at: 
+https://www.websequencediagrams.com/
+
+text for recration:
+title Sequence diagram for picked new record
+note over Android UI: (Screen)
+
+Android UI->+activityMain:Start App
+activityMain->activityMain:check if existing user
+activityMain->+Android UI:Display Options
+
+alt Menu Options
+note right of Android UI
+    Option Picked
+end note
+    Android UI->activityMain: Choose new record
+    activityMain->+RecordManagement: start program
+RecordManagement->RecordManagement: Create new Record Class
+else
+Android UI->activityMain: Choose edit record
+else 
+Android UI->activityMain: Choose send record
+end
+
+RecordManagement<-->manageSQLite:Select Plant
+RecordManagement<-->GPS_Location: Get GPS Cordinames
+RecordManagement<-->activityMain:Get DAFOR
+activityMain<-->Android UI:Get DAFOR
+RecordManagement<-->activityMain:Get comment
+activityMain<-->Android UI:Get comment
+
+note over Android SYSTEM: (System calls, etc)
+
+alt GetImage Class
+    activityMain<-->Android SYSTEM: Choose Take Picture
+Android SYSTEM<-->Android UI: Camera
+else 
+activityMain<-->Android SYSTEM: Choose get from Gallery
+Android SYSTEM<-->Android UI: open Gallery
+end
+RecordManagement-->-activityMain:Record Done
+
+activityMain-->+MIME: Create Upload
+
+alt Internet Connection
+MIME->Android SYSTEM: check for connection
+Android SYSTEM->MIME: there is connection
+MIME->MIME: Upload/Send
+else No Connection
+MIME->Android SYSTEM: check for connection
+Android SYSTEM->MIME: there is not connection
+MIME->MIME: Not Connection
+MIME->-MIME: Save in "To send"
+end

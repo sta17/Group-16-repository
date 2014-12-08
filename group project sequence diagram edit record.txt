@@ -1,0 +1,78 @@
+made at: 
+https://www.websequencediagrams.com/
+
+text for recration:
+title Sequence diagram for picked edit record
+note over Android UI: (Screen)
+
+Android UI->+activityMain:Start App
+activityMain->activityMain:check if existing user
+activityMain->+Android UI:Display Options
+
+alt Menu Options
+    Android UI->activityMain: Choose new record
+else
+note right of Android UI
+    Option Picked
+end note
+Android UI->activityMain: Choose edit record
+else 
+Android UI->activityMain: Choose send record
+    activityMain->RecordManagement: start program    
+end
+
+activityMain<-->manageSQLite:Get records.
+activityMain-->Android UI: Display records.
+Android UI-->activityMain: Pick record.
+activityMain<-->manageSQLite:Get details/(record).
+activityMain-->+RecordManagement: Start Program
+activityMain-->Android UI: Display details/(record).
+
+Note over Android UI, Android SYSTEM: Slide Menu
+alt DAFOR
+
+RecordManagement<-->activityMain:Get DAFOR
+activityMain<-->Android UI:Get DAFOR
+
+else Comment
+
+RecordManagement<-->activityMain:Get comment
+activityMain<-->Android UI:Get comment
+
+else Picture
+
+note over Android SYSTEM: (System calls, etc)
+
+alt GetImage Class
+    activityMain<-->+Android SYSTEM: Choose Take Picture
+Android SYSTEM<-->-Android UI: Camera
+else 
+activityMain<-->+Android SYSTEM: Choose get from Gallery
+Android SYSTEM<-->-Android UI: open Gallery
+end
+
+else Location
+RecordManagement<-->GPS_Location: Get GPS Cordinames
+else Plant
+RecordManagement<-->manageSQLite:Select Plant
+end
+
+RecordManagement-->-activityMain:Record edit Done
+
+activityMain-->+MIME: Make new Mime Message
+
+alt Internet Connection
+MIME->Android SYSTEM: check for connection
+Android SYSTEM->MIME: there is connection
+MIME->MIME: Upload/Send
+else No Connection
+MIME->Android SYSTEM: check for connection
+Android SYSTEM->MIME: there is not connection
+MIME->MIME: Not Connection
+MIME->-MIME: Save in "To send"
+end
+MIME->Android SYSTEM: check for connection
+Android SYSTEM->MIME: there is not connection
+MIME->MIME: Not Connection
+MIME->-MIME: Save in "To send"
+end
