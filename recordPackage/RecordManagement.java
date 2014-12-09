@@ -1,6 +1,5 @@
 package recordPackage;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -120,20 +119,20 @@ public class RecordManagement {
 		currentRecord.setLongitude(longitude);;
 	}
 
-	public File getSceneIMG() {
-		return currentRecord.getSceneIMG();
+	public String getSceneIMGPath() {
+		return currentRecord.getSceneIMGPath();
 	}
 
-	public void setSceneIMG(File sceneIMG) {
-		currentRecord.setSceneIMG(sceneIMG);;
+	public void setSceneIMGPath(String sceneIMGPath) {
+		currentRecord.setSceneIMGPath(sceneIMGPath);;
 	}
 
-	public File getSpecimenIMG() {
-		return currentRecord.getSpecimenIMG();
+	public String getSpecimenIMGPath() {
+		return currentRecord.getSpecimenIMGPath();
 	}
 
-	public void setSpecimenIMG(File SpecimenIMG) {
-		currentRecord.setSpecimenIMG(SpecimenIMG);;
+	public void setSpecimenIMGPath(String SpecimenIMGPath) {
+		currentRecord.setSpecimenIMGPath(SpecimenIMGPath);
 	}
 	
 }

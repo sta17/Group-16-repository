@@ -1,6 +1,5 @@
 package recordPackage;
 
-import java.io.File;
 import java.util.Date;
 
 public class Record{
@@ -13,15 +12,15 @@ public class Record{
 	private DAFORLEVEL DAFOR;
 	private double latitude;
 	private double longitude;
-	private File SpecimenIMG;
-	private File sceneIMG;
+	private String SpecimenIMGPath;
+	private String sceneIMGPath;
 	private Date editdate = new Date();
 	private boolean uploaded;
 
 	//Constructors
 	
 	public Record(String comment, String PlantLatin, String PlantCommon, DAFORLEVEL dAFOR,
-			double latitude, double longitude, File SpecimenIMG, File sceneIMG) {
+			double latitude, double longitude, String SpecimenIMGPath, String sceneIMGPath) {
 		super();
 		this.comment = comment;
 		this.PlantLatin = PlantLatin;
@@ -29,8 +28,8 @@ public class Record{
 		DAFOR = dAFOR;
 		this.latitude = latitude;
 		this.longitude = longitude;
-		this.SpecimenIMG = SpecimenIMG;
-		this.sceneIMG = sceneIMG;
+		this.SpecimenIMGPath = SpecimenIMGPath;
+		this.sceneIMGPath = sceneIMGPath;
 	}
 	
 	public Record() {}
@@ -101,20 +100,20 @@ public class Record{
 		this.longitude = longitude;
 	}
 
-	public File getSceneIMG() {
-		return sceneIMG;
+	public String getSceneIMGPath() {
+		return sceneIMGPath;
 	}
 
-	public void setSceneIMG(File sceneIMG) {
-		this.sceneIMG = sceneIMG;
+	public void setSceneIMGPath(String sceneIMGPath) {
+		this.sceneIMGPath = sceneIMGPath;
 	}
 
-	public File getSpecimenIMG() {
-		return SpecimenIMG;
+	public String getSpecimenIMGPath() {
+		return SpecimenIMGPath;
 	}
 
-	public void setSpecimenIMG(File SpecimenIMG) {
-		this.SpecimenIMG = SpecimenIMG;
+	public void setSpecimenIMGPath(String SpecimenIMGPath) {
+		this.SpecimenIMGPath = SpecimenIMGPath;
 	}
 	
 	// enum
