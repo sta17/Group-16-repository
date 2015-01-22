@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">the_botonists_companion</string>
+    <string name="title_activity_activity1">Activity1</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_activity2">Activity2</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_user_details">UserDetails</string>
+    <string name="title_activity_camera">Camera</string>
+    <string name="title_activity_recordsource">Recordsource</string>
+
+</resources>

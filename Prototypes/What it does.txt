@@ -1,0 +1,3 @@
+Contains image handling, both from camera and gallery/album, etc.
+send information using intent from screen to screen.
+switch page. - might be bugged.
