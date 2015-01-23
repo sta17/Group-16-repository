@@ -9,35 +9,63 @@
     tools:context="com.example.the_botonists_companion.Camera" >
 
     <RelativeLayout
+        android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="5dp" >
- 
-        <Button
-            android:id="@+id/btnSelectPhoto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="clickFunc"
-            android:text="Select Photo" />
- 
     </RelativeLayout>
- 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="10dp" >
 
-        <ImageView
-            android:id="@+id/ivImage"
-            android:layout_width="match_parent"
+        <ImageButton
+            android:id="@+id/areapicbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/plantpicbutton"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="83dp"
+            android:onClick="clickFuncArea"
+            android:src="@drawable/ic_launcher" />
+
+        <ImageButton
+            android:id="@+id/plantpicbutton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="126dp"
+            android:layout_marginBottom="93dp"
+            android:onClick="clickFuncPlant"
             android:src="@drawable/ic_launcher" />
- 
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/plantpicbutton"
+            android:layout_centerHorizontal="true"
+            android:text="Plant Image" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/areapicbutton"
+            android:layout_alignLeft="@+id/areapicbutton"
+            android:layout_marginBottom="64dp"
+            android:text="Area Image" />
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/backcamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Camera Back" />
 
 </RelativeLayout>

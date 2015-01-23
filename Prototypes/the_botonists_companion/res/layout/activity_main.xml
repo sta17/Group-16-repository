@@ -91,4 +91,29 @@
         android:layout_centerVertical="true"
         android:text="Camera" />
 
+    <ImageView
+        android:id="@+id/areatemptest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Button03"
+        android:layout_below="@+id/userdetails"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Button03"
+        android:layout_toRightOf="@+id/Button03"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/planttemptest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/areatemptest"
+        android:layout_alignRight="@+id/Button03"
+        android:src="@drawable/ic_launcher" />
+
 </RelativeLayout>

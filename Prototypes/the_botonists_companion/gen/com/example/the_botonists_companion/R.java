@@ -25,26 +25,32 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int Button02=0x7f080012;
-        public static final int Button03=0x7f080004;
-        public static final int action_settings=0x7f080013;
-        public static final int btnSelectPhoto=0x7f080000;
-        public static final int commenttargetfield=0x7f080008;
-        public static final int editText1=0x7f08000b;
-        public static final int emailfield=0x7f08000f;
-        public static final int emailinput=0x7f08000e;
-        public static final int emailtargetfield=0x7f080007;
-        public static final int ivImage=0x7f080001;
-        public static final int latitudetargetfield=0x7f080009;
-        public static final int namefield=0x7f080010;
-        public static final int nameinput=0x7f08000c;
-        public static final int nametargetfield=0x7f080005;
-        public static final int phonefield=0x7f080011;
-        public static final int phoneinput=0x7f08000d;
-        public static final int phonetargetfield=0x7f080006;
-        public static final int textView1=0x7f080002;
-        public static final int toCamera=0x7f08000a;
-        public static final int userdetails=0x7f080003;
+        public static final int Button02=0x7f080018;
+        public static final int Button03=0x7f080007;
+        public static final int action_settings=0x7f080019;
+        public static final int areapicbutton=0x7f080001;
+        public static final int areatemptest=0x7f08000e;
+        public static final int backcamera=0x7f080005;
+        public static final int commenttargetfield=0x7f08000b;
+        public static final int editText1=0x7f080011;
+        public static final int emailfield=0x7f080015;
+        public static final int emailinput=0x7f080014;
+        public static final int emailtargetfield=0x7f08000a;
+        public static final int imageView1=0x7f08000f;
+        public static final int latitudetargetfield=0x7f08000c;
+        public static final int namefield=0x7f080016;
+        public static final int nameinput=0x7f080012;
+        public static final int nametargetfield=0x7f080008;
+        public static final int phonefield=0x7f080017;
+        public static final int phoneinput=0x7f080013;
+        public static final int phonetargetfield=0x7f080009;
+        public static final int plantpicbutton=0x7f080002;
+        public static final int planttemptest=0x7f080010;
+        public static final int relativeLayout1=0x7f080000;
+        public static final int textView1=0x7f080004;
+        public static final int textView2=0x7f080003;
+        public static final int toCamera=0x7f08000d;
+        public static final int userdetails=0x7f080006;
     }
     public static final class layout {
         public static final int activity_camera=0x7f030000;

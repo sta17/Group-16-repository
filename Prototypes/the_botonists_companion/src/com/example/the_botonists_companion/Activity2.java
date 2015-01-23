@@ -8,24 +8,24 @@ import android.widget.Button;
 
 public class Activity2 extends Activity {
 
-    /** Called when the activity is first created. */
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main2);
+	public void createButtons() {
+		Button next = (Button) findViewById(R.id.Button02);
+		next.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View view) {
+				Intent intent = new Intent();
+				setResult(RESULT_OK, intent);
+				finish();
+			}
 
-        createButtons();
-    }
-    
-    public void createButtons(){
-    	Button next = (Button) findViewById(R.id.Button02);
-        next.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                setResult(RESULT_OK, intent);
-                finish();
-            }
+		});
+	}
 
-        });
-    }
-    
+	/** Called when the activity is first created. */
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main2);
+
+		createButtons();
+	}
+
 }
