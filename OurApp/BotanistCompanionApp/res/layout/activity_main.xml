@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android1="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android1:layout_width="match_parent"
+    android1:layout_height="match_parent"
+    android1:orientation="vertical"
+    android1:background="@drawable/images"
+    tools:context="com.example.TheBotanistsCompanion.MainActivity"
+    android1:id ="@+id/maina" >
+    
+    <Button
+        android1:id="@+id/newRecord"
+        android1:layout_width="fill_parent"
+        android1:layout_height="wrap_content"
+        android1:layout_weight="0.33"
+        android1:text="New recording" />
+
+    <Button
+        android1:id="@+id/editRecord"
+        android1:layout_width="fill_parent"
+        android1:layout_height="wrap_content"
+        android1:layout_weight="0.33"
+        android1:text="Edit recording" />
+
+    <Button
+        android1:id="@+id/sendtodatabase"
+        android1:layout_width="fill_parent"
+        android1:layout_height="wrap_content"
+        android1:layout_weight="0.33"
+        android1:text="Send to database" />
+
+</LinearLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.botanistcompanionapp.Fragment_DAFOR" >
+
+    <Button
+        android:id="@+id/DAFOR_D"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.166"
+        android:text="D" />
+
+    <Button
+        android:id="@+id/DAFOR_A"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.166"
+        android:text="A" />
+
+    <Button
+        android:id="@+id/DAFOR_F"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.166"
+        android:text="F" />
+
+    <Button
+        android:id="@+id/DAFOR_O"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.166"
+        android:text="O" />
+
+    <Button
+        android:id="@+id/DAFOR_R"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.166"
+        android:text="R" />
+
+    <TextView
+        android:id="@+id/DAFORdisplay"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="DAFOR level: " />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.166"
+        android:paddingTop="10dp" >
+
+        <Button
+            android:id="@+id/daforBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="Back" />
+
+        <Button
+            android:id="@+id/daforNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="Next" />
+
+    </LinearLayout>
+
+</LinearLayout>
