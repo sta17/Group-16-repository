@@ -10,7 +10,7 @@
     tools:context="com.example.botanistcompanionapp.Fragment_Site_selection" >
 
     <SearchView
-        android:id="@+id/PSsearchView"
+        android:id="@+id/RSsearchView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -18,20 +18,21 @@
         </SearchView>
 
     <ListView
-        android:id="@+id/PSlistView"
+        android:id="@+id/RSlistView"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_alignLeft="@+id/PSsearchView"
-        android:layout_below="@+id/PSsearchView" >
+        android:layout_above="@+id/Pick"
+        android:layout_alignLeft="@+id/RSsearchView"
+        android:layout_below="@+id/RSsearchView" >
+
     </ListView>
 
     <Button
         android:id="@+id/Pick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/PSlistView"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
         android:text="Done" />
 
 </RelativeLayout>

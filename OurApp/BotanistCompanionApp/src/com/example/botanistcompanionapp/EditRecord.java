@@ -3,6 +3,9 @@ package com.example.botanistcompanionapp;
 import java.util.ArrayList;
 import java.util.List;
 
+import plantPackage.Plant;
+import plantPackage.PlantListInteracter;
+
 import com.example.botanistcompanionapp.Fragment_GPS.NewRecordCommunicator;
 import com.example.botanistcompanionapp.Fragment_Select_Plant.PlantListCommunicator;
 import com.example.botanistcompanionapp.Fragment_Site_selection.PickRecordCommunicator;
@@ -10,8 +13,6 @@ import com.example.botanistcompanionapp.Fragment_Site_selection.PickRecordCommun
 import recordPackage.Record;
 import recordPackage.RecordManagement;
 import utilities.GPSLocation;
-import utilities.Plant;
-import utilities.PlantListInteracter;
 import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.Bundle;

@@ -1,12 +1,10 @@
 package com.example.botanistcompanionapp;
 
 import java.util.ArrayList;
-
+import plantPackage.Plant;
+import plantPackage.PlantAdapter;
 import recordPackage.Record;
-import recordPackage.Record.DAFORLEVEL;
-import utilities.Plant;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,9 +12,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-
+import android.widget.ListView;
  
 public class Fragment_Select_Plant extends Fragment {
 
@@ -30,6 +30,8 @@ public class Fragment_Select_Plant extends Fragment {
 	private PlantListCommunicator mCallback;
 	private ArrayList<Plant> plantlist;
 	private int id;
+	private PlantAdapter listadapter;
+	private ListView plantListView;
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment__select__plant,
@@ -75,6 +77,29 @@ public class Fragment_Select_Plant extends Fragment {
 			public void onClick(View arg0) {
 				getFragmentManager().popBackStack();
 			} });
+		
+		//mainListView = (ListView) findViewById( R.id.PSlistView );
+		
+		//View view = inflater.inflate(R.layout.fragment_plant_selection, container, false);
+				plantListView = (ListView) view.findViewById( R.id.PSlistView ); 
+				
+				//add items to list rows
+				
+			    //add each row (item) to list
+			    listadapter = new PlantAdapter(getActivity(), plantlist);
+			    
+			    plantListView.setAdapter(listadapter);
+			    
+			    //set what happens when an item in the list is clicked. A variable "plant" is given the text (name) 
+			    //of the plant (listItem)
+			    plantListView.setOnItemClickListener(new OnItemClickListener() {
+
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+							rec.setPlantCommon(plantlist.get((int) id).getCommon());
+							rec.setPlantLatin(plantlist.get((int) id).getLatin());
+					}
+		        });
 		
 		return view;
 	}

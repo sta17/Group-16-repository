@@ -36,39 +36,46 @@ public final class R {
         public static final int DAFOR_O=0x7f09000c;
         public static final int DAFOR_R=0x7f09000d;
         public static final int DAFORdisplay=0x7f09000e;
-        public static final int EmailPlate=0x7f090023;
+        public static final int EmailPlate=0x7f090025;
         public static final int GBack=0x7f090012;
         public static final int GDone=0x7f090013;
         public static final int GPS_Button=0x7f090011;
-        public static final int NamePlate=0x7f09001f;
+        public static final int NamePlate=0x7f090021;
         public static final int PBack=0x7f090018;
         public static final int PNext=0x7f090019;
         public static final int PSBack=0x7f09001d;
         public static final int PSNext=0x7f09001c;
         public static final int PSlistView=0x7f09001b;
         public static final int PSsearchView=0x7f09001a;
-        public static final int PhonePlate=0x7f090021;
-        public static final int Pick=0x7f09001e;
+        public static final int PhonePlate=0x7f090023;
+        public static final int Pick=0x7f090020;
         public static final int PlantPlate=0x7f090016;
-        public static final int action_settings=0x7f090028;
+        public static final int RSlistView=0x7f09001f;
+        public static final int RSsearchView=0x7f09001e;
+        public static final int action_settings=0x7f09002f;
         public static final int areapicbutton=0x7f090015;
         public static final int commentfield=0x7f090006;
         public static final int daforBack=0x7f09000f;
         public static final int daforNext=0x7f090010;
+        public static final int daforscale=0x7f09002a;
+        public static final int datename=0x7f09002c;
         public static final int editRecord=0x7f090003;
-        public static final int editText2=0x7f090025;
-        public static final int edit_email=0x7f090024;
-        public static final int edit_name=0x7f090020;
-        public static final int edit_phone=0x7f090022;
+        public static final int editText2=0x7f090027;
+        public static final int edit_email=0x7f090026;
+        public static final int edit_name=0x7f090022;
+        public static final int edit_phone=0x7f090024;
         public static final int fragment_container=0x7f090005;
         public static final int fragment_edit_container=0x7f090000;
+        public static final int latinname=0x7f09002b;
         public static final int maina=0x7f090001;
         public static final int newRecord=0x7f090002;
+        public static final int plantRowTextViewcommon=0x7f09002e;
+        public static final int plantRowTextViewlatin=0x7f09002d;
         public static final int plantpicbutton=0x7f090017;
-        public static final int search=0x7f090029;
-        public static final int section_label=0x7f090027;
+        public static final int search=0x7f090030;
+        public static final int section_label=0x7f090029;
         public static final int sendtodatabase=0x7f090004;
-        public static final int submit=0x7f090026;
+        public static final int submit=0x7f090028;
     }
     public static final class layout {
         public static final int activity_edit_record=0x7f030000;
@@ -83,6 +90,8 @@ public final class R {
         public static final int fragment__site_selection=0x7f030009;
         public static final int fragment__userdata=0x7f03000a;
         public static final int fragment_main_activity2=0x7f03000b;
+        public static final int locationrow=0x7f03000c;
+        public static final int plantrow=0x7f03000d;
     }
     public static final class menu {
         public static final int edit_record=0x7f080000;
