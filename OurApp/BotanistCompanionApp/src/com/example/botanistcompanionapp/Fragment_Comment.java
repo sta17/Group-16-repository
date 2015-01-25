@@ -15,16 +15,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class Fragment_Comment extends Fragment {
-	final static String ARG_POSITION = "position";
-	Fragment photoFragment;
-	Button CNext;
-	Button CBack;
-	EditText commentfield;
+	
+	private Fragment photoFragment;
+	private Button CNext;
+	private Button CBack;
+	private EditText commentfield;
 	private View view;
 	private Record rec;
 	private String email;
 	private String name;
 	private String phone;
+	private int id;
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		view = inflater.inflate(R.layout.fragment__comment, container, false);
@@ -39,6 +40,12 @@ public class Fragment_Comment extends Fragment {
 			name = args.getString("NAME");
 			phone = args.getString("PHONE");
 			email = args.getString("EMAIL");
+			id = args.getInt("ID");
+			
+			if(rec.getComment() != null){
+				commentfield.append(rec.getComment());
+			}
+			
 		}}
 		
 		CNext = (Button) view.findViewById(R.id.CNext);
@@ -52,10 +59,11 @@ public class Fragment_Comment extends Fragment {
 				args.putString("NAME", name);
 				args.putString("EMAIL", email);
 				args.putString("PHONE", phone);
+				args.putInt("ID", id);
 				FragmentManager fm = getFragmentManager();
 				FragmentTransaction transaction = fm.beginTransaction();
 				photoFragment.setArguments(args);
-				transaction.replace(R.id.fragment_container, photoFragment);
+				transaction.replace(id, photoFragment);
 				transaction.addToBackStack(null);
 				transaction.commit();	
 			} });
@@ -64,6 +72,8 @@ public class Fragment_Comment extends Fragment {
 		CBack.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
+				String comment = commentfield.getText().toString();
+				rec.setComment(comment);
 				getFragmentManager().popBackStack();
 			} });
 		return view;

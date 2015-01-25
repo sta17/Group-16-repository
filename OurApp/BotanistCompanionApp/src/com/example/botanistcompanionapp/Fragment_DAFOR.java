@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 public class Fragment_DAFOR extends Fragment {
 	
+	private int id;
 	private Fragment commentFragment;
 	private Button daforNext;
 	private Button daforBack;
@@ -44,6 +45,7 @@ public class Fragment_DAFOR extends Fragment {
 			name = args.getString("NAME");
 			phone = args.getString("PHONE");
 			email = args.getString("EMAIL");
+			id = args.getInt("ID");
 			rec.getDAFOR();
 			DAFORLEVEL daf = rec.getDAFOR();
 			if(daf != null){
@@ -58,10 +60,14 @@ public class Fragment_DAFOR extends Fragment {
 			public void onClick(View arg0) {
 				Bundle args = new Bundle();
 				args.putSerializable("RECORD", rec);
+				args.putString("NAME", name);
+				args.putString("EMAIL", email);
+				args.putString("PHONE", phone);
+				args.putInt("ID", id);
 				FragmentManager fm = getFragmentManager();
 				FragmentTransaction transaction = fm.beginTransaction();
 				commentFragment.setArguments(args);
-				transaction.replace(R.id.fragment_container, commentFragment);
+				transaction.replace(id, commentFragment);
 				transaction.addToBackStack(null);
 				transaction.commit();
 			} });

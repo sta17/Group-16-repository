@@ -20,6 +20,7 @@ import android.widget.Button;
 
 public class Fragment_Site_selection extends Fragment {
 
+	private Fragment_Userdata fragment_userdata;
 	private Button sNext;
 	private View view;
 	private String email;
@@ -29,20 +30,53 @@ public class Fragment_Site_selection extends Fragment {
 	private Button pick;
 	private PickRecordCommunicator mCallback;
 	private List<Record> recordlist;
+	private int id;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		view = inflater.inflate(R.layout.fragment__site_selection, container, false);
 		//Select_Plant = new Fragment_Select_Plant();
 		
+		fragment_userdata = new Fragment_Userdata();
 		rec = new Record();
 		recordlist = mCallback.getRecordlist();
+		Bundle args = getArguments();
+		name = args.getString("NAME");
+		phone = args.getString("PHONE");
+		email = args.getString("EMAIL");
+		id = args.getInt("ID");
+		
 		
 		pick = (Button) view.findViewById(R.id.Pick);
 		pick.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
+				//HARDCODED BIT START
+				rec.setComment("bla bla");
+				rec.setLatitude(14);
+				rec.setLatitude(20);
+				rec.setPlantCommon("plantcommon");
+				rec.setPlantLatin("plantlatin");
+				rec.setRecordname("0");
+				rec.setUploaded(false);
+				//HARDCODED BIT END
+				
 				mCallback.LaunchRecordedit(rec);
+				
+				Bundle args1 = new Bundle();
+				args1.putSerializable("RECORD", rec);
+				args1.putString("NAME", name);
+				args1.putString("EMAIL", email);
+				args1.putString("PHONE", phone);
+				args1.putInt("ID", id);
+				
+				FragmentManager fm = getFragmentManager();
+				FragmentTransaction transaction = fm.beginTransaction();
+				fragment_userdata.setArguments(args1);
+				transaction.replace(id, fragment_userdata);
+				transaction.addToBackStack(null);
+				transaction.commit();	
+				
 			} });
 		
 		return view;

@@ -16,6 +16,8 @@ import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -34,6 +36,8 @@ public class EditRecord extends FragmentActivity implements NewRecordCommunicato
 	private String name;
 	private String phone;
 	private List<Record> recordlist;
+	private FragmentTransaction ft;
+	private FragmentManager fm;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -47,19 +51,6 @@ public class EditRecord extends FragmentActivity implements NewRecordCommunicato
 				return;
 			} }
 
-		recordlist = recordmanager.getAllRecords();
-		
-		getActionBar().setTitle("Edit or delete a Record");
-		
-		firstFragment = new Fragment_Site_selection();
-		firstFragment.setArguments(getIntent().getExtras());
-		getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, firstFragment).commit();
-		
-	}
-
-	public void LaunchRecordedit(Record rec){
-		getActionBar().setTitle("Editing a Record");
-		this.rec = rec;
 		gps = new GPSLocation(this);
 		gps.startGPS();
 		
@@ -69,18 +60,29 @@ public class EditRecord extends FragmentActivity implements NewRecordCommunicato
 		name = settings.getString("NAME", null);
 		phone = settings.getString("PHONE", null);
 		
+		plantlist = tempPlantListCreator(); // HARD CODED BIT IS HERE REMOVE WHEN TESTING DATABASE
+		recordmanager = tempRecordListCreator(); // HARD CODED BIT IS HERE REMOVE WHEN TESTING DATABASE
+		recordlist = recordmanager.getAllRecords();
+		
+		getActionBar().setTitle("Edit or delete a Record");
+		
 		Bundle args1 = new Bundle();
-		args1.putSerializable("RECORD", rec);
 		args1.putString("NAME", name);
 		args1.putString("EMAIL", email);
 		args1.putString("PHONE", phone);
+		args1.putInt("ID", R.id.fragment_edit_container);
 		
-		secondFragment = new Fragment_Userdata();
-		secondFragment.setArguments(getIntent().getExtras());
-		secondFragment.setArguments(args1);
-		getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, secondFragment).commit();
-		
-		plantlist = tempListCreator();
+		firstFragment = new Fragment_Site_selection();
+		firstFragment.setArguments(getIntent().getExtras());
+		firstFragment.setArguments(args1);
+		fm = getSupportFragmentManager(); // Transaction start 
+		ft = fm.beginTransaction().add(R.id.fragment_edit_container, firstFragment);
+		ft.commit();
+	}
+
+	public void LaunchRecordedit(Record rec){
+		getActionBar().setTitle("Editing a Record");
+		this.rec = rec;
 	}
 	
 	@Override
@@ -113,10 +115,28 @@ public class EditRecord extends FragmentActivity implements NewRecordCommunicato
 		gps.stopGPS();
 	}
 
-	public PlantListInteracter tempListCreator(){
+	public PlantListInteracter tempPlantListCreator(){
 		PlantListInteracter temp = new PlantListInteracter();
 		for(int i = 0; i < 10; i++){
 			temp.addplant("latin"+i, "common"+i);
+		}
+		return temp;
+	}
+	
+	public RecordManagement tempRecordListCreator(){
+		RecordManagement temp = new RecordManagement();
+		for(int i = 0; i < 10; i++){
+			Record rec = new Record();
+			rec.setComment("bla bla"+i);
+			rec.setLatitude((14+i));
+			rec.setLatitude((20+i));
+			rec.setPlantCommon("plantcommon "+i);
+			rec.setPlantLatin("plantlatin "+i);
+			rec.setRecordname(""+i);
+			rec.setUploaded(false);
+			rec.setDAFOR(Record.DAFORLEVEL.Dominant);
+			temp.editARecord(rec);
+			temp.addRecordToList();
 		}
 		return temp;
 	}

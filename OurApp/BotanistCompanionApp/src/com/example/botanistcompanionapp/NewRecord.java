@@ -71,6 +71,7 @@ public class NewRecord extends FragmentActivity implements NewRecordCommunicator
 		args1.putString("NAME", name);
 		args1.putString("EMAIL", email);
 		args1.putString("PHONE", phone);
+		args1.putInt("ID", R.id.fragment_container);
 		
 		firstFragment = new Fragment_Userdata();
 		firstFragment.setArguments(getIntent().getExtras());

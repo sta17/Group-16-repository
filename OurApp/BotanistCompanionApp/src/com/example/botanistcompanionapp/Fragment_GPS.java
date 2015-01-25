@@ -1,6 +1,7 @@
 package com.example.botanistcompanionapp;
 
 import recordPackage.Record;
+import utilities.GPSLocation;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 
 public class Fragment_GPS extends Fragment {
 
+	private int id;
 	private Record rec;
 	private Button GBack;
 	private Button GDone;
@@ -28,6 +30,8 @@ public class Fragment_GPS extends Fragment {
 	private String email;
 	private String name;
 	private String phone;
+	private GPSLocation gps;
+	private Location loc;
 	private NewRecordCommunicator mCallback;
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,19 +40,20 @@ public class Fragment_GPS extends Fragment {
 		rec = new Record();
 
 		Bundle args = getArguments();
-		if (args != null) {
-			if (args.containsKey("RECORD")) {
-				rec = (Record) args.getSerializable("RECORD");
-				name = args.getString("NAME");
-				phone = args.getString("PHONE");
-				email = args.getString("EMAIL");
-			}
-		}
+		if(args != null){
+		if(args.containsKey("RECORD")){
+			rec = (Record) args.getSerializable("RECORD");
+			name = args.getString("NAME");
+			phone = args.getString("PHONE");
+			email = args.getString("EMAIL");
+			id = args.getInt("ID");
+		}}
 		
  		GDone = (Button) view.findViewById(R.id.GDone);
  		GDone.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
+				gps.stopGPS();
 				mCallback.ReturnFinalRecord(rec,email,name,phone);
 			} });
 
@@ -56,15 +61,20 @@ public class Fragment_GPS extends Fragment {
  		GBack.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
+				gps.stopGPS();
 				getFragmentManager().popBackStack();
 			}
 		});
+ 		
+ 		gps = new GPSLocation(getActivity());
+ 		gps.startGPS();
  		
  		GPSbutton = (Button) view.findViewById(R.id.GPS_Button);
  		GPSbutton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Location loc = mCallback.getLocation();
+				//loc = mCallback.getLocation();
+				loc = gps.getLocation();
 				if(loc != null){
 					//Toast.makeText(getActivity().getApplicationContext(), "GPS Coordinates aquired.", Toast.LENGTH_SHORT).show();
 					// GPS returns Null if no location was found thus either:

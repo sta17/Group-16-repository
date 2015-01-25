@@ -29,6 +29,7 @@ public class Fragment_Userdata  extends Fragment {
 	private String phone;
 	private Record rec;
 	private View view;
+	private int id;
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		view = inflater.inflate(R.layout.fragment__userdata, container, false);
@@ -45,6 +46,7 @@ public class Fragment_Userdata  extends Fragment {
 			name = args.getString("NAME");
 			phone = args.getString("PHONE");
 			email = args.getString("EMAIL");
+			id = args.getInt("ID");
 		}}
 		
 		if (email != null) {
@@ -69,10 +71,11 @@ public class Fragment_Userdata  extends Fragment {
 				args.putString("NAME", name);
 				args.putString("EMAIL", email);
 				args.putString("PHONE", phone);
+				args.putInt("ID", id);
 				FragmentManager fm = getFragmentManager();
 				FragmentTransaction transaction = fm.beginTransaction();
 				Select_Plant.setArguments(args);
-				transaction.replace(R.id.fragment_container, Select_Plant);
+				transaction.replace(id, Select_Plant);
 				transaction.addToBackStack(null);
 				transaction.commit();	
 			} });

@@ -20,7 +20,6 @@ import android.widget.Button;
  
 public class Fragment_Select_Plant extends Fragment {
 
-	private final static String ARG_POSITION = "position";
 	private Fragment DAFORFragment;
 	private Button pNext;
 	private Button pBack;
@@ -30,6 +29,7 @@ public class Fragment_Select_Plant extends Fragment {
 	private String phone;
 	private PlantListCommunicator mCallback;
 	private ArrayList<Plant> plantlist;
+	private int id;
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment__select__plant,
@@ -44,6 +44,7 @@ public class Fragment_Select_Plant extends Fragment {
 			name = args0.getString("NAME");
 			phone = args0.getString("PHONE");
 			email = args0.getString("EMAIL");
+			id = args0.getInt("ID");
 		}}
 		
 		pNext = (Button) view.findViewById(R.id.PSNext);
@@ -53,10 +54,14 @@ public class Fragment_Select_Plant extends Fragment {
 			public void onClick(View arg0) {
 				Bundle args = new Bundle();
 				args.putSerializable("RECORD", rec);
+				args.putString("NAME", name);
+				args.putString("EMAIL", email);
+				args.putString("PHONE", phone);
+				args.putInt("ID", id);
 				FragmentManager fm = getFragmentManager();
 				FragmentTransaction transaction = fm.beginTransaction();
 				DAFORFragment.setArguments(args);
-				transaction.replace(R.id.fragment_container, DAFORFragment);
+				transaction.replace(id, DAFORFragment);
 				transaction.addToBackStack(null);
 				transaction.commit();
 			}

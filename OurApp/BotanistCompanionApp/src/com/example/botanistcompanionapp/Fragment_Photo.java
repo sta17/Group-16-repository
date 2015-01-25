@@ -34,6 +34,7 @@ import android.widget.ImageButton;
 
 public class Fragment_Photo extends Fragment {
 	
+	private int id;
 	private Fragment_GPS gpsfrag;
 	private final int PLANT = 0;
 	private final int AREA = 1;
@@ -58,6 +59,15 @@ public class Fragment_Photo extends Fragment {
 		view = inflater.inflate(R.layout.fragment__photo, container, false);
 
 		rec = new Record();
+		Bundle args = getArguments();
+		if(args != null){
+		if(args.containsKey("RECORD")){
+			rec = (Record) args.getSerializable("RECORD");
+			name = args.getString("NAME");
+			phone = args.getString("PHONE");
+			email = args.getString("EMAIL");
+			id = args.getInt("ID");
+		}}
 		
 		initActivityScreenOrientPortrait();
 
@@ -70,11 +80,12 @@ public class Fragment_Photo extends Fragment {
 				args.putString("NAME", name);
 				args.putString("EMAIL", email);
 				args.putString("PHONE", phone);
+				args.putInt("ID", id);
 				FragmentManager fm = getFragmentManager();
 				FragmentTransaction transaction = fm.beginTransaction();
 				gpsfrag = new Fragment_GPS();
 				gpsfrag.setArguments(args);
-				transaction.replace(R.id.fragment_container, gpsfrag);
+				transaction.replace(id, gpsfrag);
 				transaction.addToBackStack(null);
 				transaction.commit();
 			} });
@@ -103,16 +114,7 @@ public class Fragment_Photo extends Fragment {
 			}
 		});
 		
-		Bundle args = getArguments();
-		if (args != null) {
-			if (args.containsKey("RECORD")) {
-				rec = (Record) args.getSerializable("RECORD");
-				name = args.getString("NAME");
-				phone = args.getString("PHONE");
-				email = args.getString("EMAIL");
-				updateImage(rec);
-			}
-		}
+		updateImage(rec);
 		
 		return view;
 	}
