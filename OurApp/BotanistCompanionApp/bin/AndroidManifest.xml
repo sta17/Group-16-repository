@@ -11,21 +11,18 @@
     <!-- Accessing camera hardware -->
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
-    </uses-permission>
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <permission
         android:name="android.permission.BLUETOOTH"
         android:label="BLUETOOTH" >
     </permission>
-    <permission android:name="android.permission.BLUETOOTH_ADMIN" >
-    </permission>
+    <permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
         android:allowBackup="true"
@@ -33,7 +30,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="uk.ac.aber.dcs.cs22120.group16.activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,43 +39,42 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NewRecord"
+            android:name="uk.ac.aber.dcs.cs22120.group16.activities.NewRecord"
             android:label="@string/title_activity_new_record" >
         </activity>
         <activity
-            android:name=".Fragment_Userdata"
+            android:name="uk.ac.aber.dcs.cs22120.group16.fragments.Fragment_Userdata"
             android:label="@string/title_activity_fragment__userdata" >
         </activity>
         <activity
-            android:name=".Fragment_Site_selection"
+     		android:name="uk.ac.aber.dcs.cs22120.group16.fragments.Fragment_Site_selection"
             android:label="@string/title_activity_fragment__site_selection" >
 		</activity>
         <activity
-            android:name=".Fragment_Select_Plant"
+            android:name="uk.ac.aber.dcs.cs22120.group16.fragments.Fragment_Select_Plant"
             android:label="@string/title_activity_fragment__select__plant" >
         </activity>
-        <activity
-            android:name=".Fragment_DAFOR"
+        <activity			android:name="uk.ac.aber.dcs.cs22120.group16.fragments.Fragment_DAFOR"
             android:label="@string/title_activity_fragment__dafor" >
         </activity>
         <activity
-            android:name=".Fragment_Comment"
+            android:name="uk.ac.aber.dcs.cs22120.group16.fragments.Fragment_Comment"
             android:label="@string/title_activity_fragment__comment" >
         </activity>
         <activity
-            android:name=".Fragment_Photo"
+        	android:name="uk.ac.aber.dcs.cs22120.group16.fragments.Fragment_Photo"
             android:label="@string/title_activity_fragment__photo" >
         </activity>
         <activity
-            android:name=".Fragment_GPS"
+     		android:name="uk.ac.aber.dcs.cs22120.group16.fragments.Fragment_GPS"
             android:label="@string/title_activity_fragment__gps" >
         </activity>
         <activity
-            android:name=".EditRecord"
+            android:name="uk.ac.aber.dcs.cs22120.group16.activities.EditRecord"
             android:label="@string/title_activity_edit_record" >
         </activity>
-        <activity
-            android:name=".SendDatabase"
+         <activity
+            android:name="uk.ac.aber.dcs.cs22120.group16.activities.SendDatabase"
             android:label="@string/title_activity_send_database" >
         </activity>
     </application>
