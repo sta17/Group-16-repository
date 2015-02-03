@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="uk.ac.aber.dcs.cs22120.group16.Fragment_Select_Plant" >
+
+    <ListView
+        android:id="@+id/SSlistView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/SiteDisplay"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" >
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/SSSiteDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/SSNext"
+        android:layout_alignTop="@+id/SSNext"
+        android:layout_toLeftOf="@+id/SSNext"
+        android:layout_toRightOf="@+id/SSBack"
+        android:gravity="center"
+        android:text="site not picked" />
+
+    <Button
+        android:id="@+id/SSBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/SSNext"
+        android:layout_alignBottom="@+id/SSNext"
+        android:layout_alignParentLeft="true"
+        android:text="Back" />
+
+    <Button
+        android:id="@+id/SSNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/SSlistView"
+        android:text="Next" />
+
+</RelativeLayout>

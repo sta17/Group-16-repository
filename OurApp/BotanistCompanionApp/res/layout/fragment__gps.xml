@@ -29,11 +29,11 @@
             android:text="Back" />
 
         <Button
-            android:id="@+id/GDone"
+            android:id="@+id/GNext"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.07"
-            android:text="Done" />
+            android:text="Next" />
 
     </LinearLayout>
 

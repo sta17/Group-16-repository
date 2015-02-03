@@ -14,35 +14,35 @@
         android:id="@+id/DAFOR_D"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.166"
+        android:layout_weight="0.143" 
         android:text="D" />
 
     <Button
         android:id="@+id/DAFOR_A"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.166"
+        android:layout_weight="0.143" 
         android:text="A" />
 
     <Button
         android:id="@+id/DAFOR_F"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.166"
+        android:layout_weight="0.143" 
         android:text="F" />
 
     <Button
         android:id="@+id/DAFOR_O"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.166"
+        android:layout_weight="0.143" 
         android:text="O" />
 
     <Button
         android:id="@+id/DAFOR_R"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.166"
+        android:layout_weight="0.143" 
         android:text="R" />
 
     <TextView
@@ -50,13 +50,13 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_weight="0.143" 
         android:text="DAFOR level: " />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.166"
-        android:paddingTop="10dp" >
+        android:layout_weight="0.143"   >
 
         <Button
             android:id="@+id/daforBack"

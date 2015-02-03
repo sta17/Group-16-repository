@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,32 +8,27 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="uk.ac.aber.dcs.cs22120.group16.Fragment_Select_Plant" >
 
-    <SearchView
-        android:id="@+id/PSsearchView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
-    </SearchView>
-
     <ListView
         android:id="@+id/PSlistView"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="match_parent"
         android:layout_above="@+id/PSNext"
-        android:layout_alignLeft="@+id/PSsearchView"
-        android:layout_below="@+id/PSsearchView" >
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" >
 
     </ListView>
-    
-    <Button
-        android:id="@+id/PSNext"
+
+    <TextView
+        android:id="@+id/PlantDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/PSlistView"
-        android:layout_marginRight="40dp"
-        android:text="Next" />
+        android:layout_alignBottom="@+id/PSNext"
+        android:layout_alignTop="@+id/PSNext"
+        android:layout_toLeftOf="@+id/PSNext"
+        android:layout_toRightOf="@+id/PSBack"
+        android:gravity="center"
+        android:text="Plant not picked" />
 
     <Button
         android:id="@+id/PSBack"
@@ -42,8 +36,15 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/PSNext"
         android:layout_alignBottom="@+id/PSNext"
-        android:layout_alignLeft="@+id/PSlistView"
-        android:layout_marginLeft="42dp"
+        android:layout_alignParentLeft="true"
         android:text="Back" />
+
+    <Button
+        android:id="@+id/PSNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/PSlistView"
+        android:text="Next" />
 
 </RelativeLayout>
