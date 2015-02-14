@@ -1,0 +1,180 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{lastpage}
+\usepackage{xcolor,colortbl}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{csvsimple}
+\usepackage{array}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Version 1.0, Release}
+\lhead{Group 16 - Project Plan}
+\lfoot{Aberystwyth University / Computer Science}
+\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+
+\definecolor{Blue}{rgb}{0.14,0.45,0.67}
+
+\begin{document}
+
+\begin{titlepage}
+
+\title{\textbf{Group 16\\Test Specification}}
+\date{\today}
+\clearpage\maketitle
+\thispagestyle{empty}
+
+\begin{raggedright}
+\textbf{Authors:} Fredrik Flottum, Steven Aanetsen, Ben Pascoe, William Lockhart-Richardson, Dan Fish Fryer, Jordon Boswell, Stoyan Vatov, Kieran Stone, Thomas Wood-Hopps, John Hooper\\
+\textbf{Config Ref:} S\_16\_TEST\_01\\
+\textbf{Version:} 1.0\\
+\textbf{Status:} Release\\
+
+\end{raggedright}
+
+\vfill
+\begin{raggedright} Department of Computer Science\\
+Aberystwyth University\\
+Aberystwyth\\
+Ceredigion\\
+SY23 3DB\\
+\copyright \thinspace  Group 16, Aberystwyth University 2014\\
+\end{raggedright}
+
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+\subsection{Purpose of this document}
+This document describes the test specifications for the project, which will be used when the first compiled version of the software is ready.
+
+\subsection{Scope}
+This document gives a detailed description of all test procedures, with instructions and pass criteria. This document should be read by all team members involved in coding.
+
+\subsection{Objectives}
+Coders are able to perform the tests performed.
+
+\section{Test Procedures}
+\subsection{Preface}
+These tests are derived from the requirement specification \cite{reqspec} for this project. Each test has a reference to the specific requirement being tested and a test reference. The test reference indicate which part of system is being tested, with 'AND' meaning Android application and 'WEB' meaning the webpage.
+
+\newpage
+\subsection{Procedures}
+\begin{center}
+	\begin{tabular}{| p{1.5cm} | p{1.8cm} | p{3cm} | p{2cm} | p{3cm} | p{3cm} | }
+		\hline
+		\rowcolor{Blue}
+		Test Ref & Req being tested & Test Content & Input & Output & Pass Criteria \\ \hline
+		WEB-1 & FR2 & Check record has been stored in the database & Creates record on website and adds it to database & No error messages are shown and record is now present in database & The record is stored correctly in the database \\ \hline
+		WEB-2 & FR9 & Check the record has been retrieved from the database & Access list of records page and click on single record & Record is sent by database and user is taken to web page displaying the data & The record appears on the web page correctly \\ \hline
+		WEB-3 & FR4 & Check image is the correct file type & Input image of accepted type (e.g. .jpg or .png) & User does not receive error message and photo is accepted & Image uploaded correctly \\ \hline
+		WEB-4 & FR4 & Check image is not the correct file type & Input image of non-accepted type (e.g. .gif) & User receives error message and photo is denied & Image not uploaded \\ \hline
+		WEB-5 & FR4 & Check if the GPS location is in the correct format & Input location information in correct format & User does not receive error message and GPS is accepted & The location GPS is stored correctly \\ \hline
+		WEB-6 & FR4 & Check if the GPS input isn't in the correct format & Input location information in improper format & User receives error message and GPS is denied & The location GPS is not stored \\ \hline
+		WEB-7 & FR4 & Check if the date/time is in the correct format & Input date/time in incorrect format & User does not receive error message and date/time is accepted & The date/time is stored correctly \\ \hline
+		WEB-8 & FR4 & Check if the date/time isn't in the correct format & Input date/time in incorrect format & User does receive error message and date/time is denied & The date/time is not stored  \\ \hline
+		WEB-9 & FR4 & Check the species list has been updated & Request species list & Most up-to-date species list is returned & Species list is up-to-date. \\ \hline
+		WEB-10 & FR4 & Check the species has been stored & Input new species then request species list & New Species is stored in Species list returned from database & Species is stored in the database correctly \\ \hline
+		WEB-11 & FR2 & Check if name is correct format & User enters strings of valid characters in each of the name fields (e.g. "John" and "Smith") & User does not receive error message and name is accepted & Name is stored correctly \\ \hline
+		\hline
+		\rowcolor{Blue}
+		Test Ref & Req being tested & Test Content & Input & Output & Pass Criteria \\ \hline
+	\end{tabular}
+
+\newpage
+	\begin{tabular}{| p{1.5cm} | p{1.8cm} | p{3cm} | p{2cm} | p{3cm} | p{3cm} | }
+		\hline
+		\rowcolor{Blue}
+		Test Ref & Req being tested & Test Content & Input & Output & Pass Criteria \\ \hline
+		WEB-12 & FR2 & Check if name isn't in correct format & User enters strings of invalid characters in each of the name fields (e.g. "@-!") & User does receive error message and name is denied & Name isn't stored \\ \hline
+		WEB-13 & FR2 & Check if phone number is correct format & User enters any 11 base 10 digits & User does not receive error message and phone number is accepted & Phone number is stored correctly \\ \hline
+		WEB-14 & FR2 & Check if phone number isn't correct format & User enters anything other than 11 base 10 digits (e.g. "abcdefghijk") & User does receive error message and phone number is denied & Phone number is not stored \\ \hline
+		WEB-15 & FR2 & Check E-mail is correct format & User enters a sequence of characters in email address format (e.g. "john.smith@genericemail.com") & User does not receive error message and E-mail is accepted & E-mail is stored correctly \\ \hline
+		WEB-16 & FR2 & Check E-mail is correct format & User enters any sequence of characters that isn't in email address format (e.g. "notanemailatall.com") & User does receive error message and E-mail is denied & E-mail is stored correctly \\ \hline
+		WEB-17 & FR5 & Check record has been deleted & Input delete record request & Record is deleted from database. & Record is no longer present in database. \\ \hline
+		WEB-18 & FR5 & Check multiple records have been deleted & Input delete record request & Multiple records are deleted from the database. & Records are no longer present in database. \\ \hline
+		WEB-19 & FR5 & Check species records have been deleted & Input delete record request & Species records are deleted from the database. & Species records are no longer present in database. \\ \hline
+		WEB-20 & FR8 & All pages load correctly (format, colours, images etc.) & Load the pages & View the pages & Loads without failure \\ \hline
+		WEB-21 & FR8 & All links work on all pages & Navigating the website & New page loads & All links, including header and footer info loads correctly \\ \hline
+		WEB-22 & FR8 & Ensure browser compatibility & Load the site on all common browsers & The loaded page & The site loads correctly on all common browsers \\ \hline
+		\hline
+		\rowcolor{Blue}
+		Test Ref & Req being tested & Test Content & Input & Output & Pass Criteria \\ \hline
+	\end{tabular}
+
+\newpage
+	\begin{tabular}{| p{1.5cm} | p{1.8cm} | p{3cm} | p{2cm} | p{3cm} | p{3cm} | }
+		\hline
+		\rowcolor{Blue}
+		Test Ref & Req being tested & Test Content & Input & Output & Pass Criteria \\ \hline
+		WEB-23 & FR8 & Ensure OS compatibility & Load the site on various OS & The loaded page & The site loads correctly on at least the most commonly used OS \\ \hline
+		WEB-24 & FR8 & Ensure screen size compatibility (Including mobile) & Load the site with different resolutions & The loaded page & It remains easily viewable/navigatable \\ \hline
+		WEB-25 & FR8 & Ensure acceptable load times & Record the load times on different browsers/OS & The time recorded & Average load time is under 2 seconds (Googles recommended) \\ \hline
+		WEB-26 & FR8 & Alternate text on all images & Stop image loading/hover over images & Text in place of image/pop-up box with text & All images have relevant information \\ \hline
+		WEB-27 & FR8 & Test error pages & Enter an incorrect URL & An error page & The intended error page is loaded \\ \hline
+		WEB-28 & FR8 & Load/Stress testing & Overload the site (multiple access, inputs etc.) & The loaded site & The site loads sufficiently quickly \\ \hline
+		AND-1 & FR1 & Start-up within 5 seconds & Open application & Overview Screen is displayed. & Application opens within 5 seconds and displays appropriate screen correctly \\ \hline
+		AND-2 & FR1 & Start new recording & ‘New recording’ button pressed & User is taken to screen asking them to input user details. & User is take to appropriate screen \\ \hline
+		AND-3 & FR1 & Once a record is complete the user is taken to the overview & ‘DONE’ button is pressed and the record is saved & User is taken to the overview screen & User is take to appropriate screen \\ \hline
+		AND-4 & FR1 & Once a record is complete the user is taken to the overview & ‘DONE’ button is pressed and user is asked if they want to send the recording & User is taken to the overview screen & User is take to appropriate screen \\ \hline
+		AND-5 & FR1 & User chooses a site & User presses a site name in the list & Site Name is added to the record and Selection is displayed between the next and back button & User site selection is displayed between Back and Next button \\ \hline
+		AND-6 & FR3 & User selects a plant & User presses a plant name in the list & Plant is added to the record and plant name is displayed in a text field between back and next button. & Plant name is displayed in a text field between back and next button. \\ \hline
+		\hline
+		\rowcolor{Blue}
+		Test Ref & Req being tested & Test Content & Input & Output & Pass Criteria \\ \hline
+	\end{tabular}
+
+	\begin{tabular}{| p{1.5cm} | p{1.8cm} | p{3cm} | p{2cm} | p{3cm} | p{3cm} | }
+		\hline
+		\rowcolor{Blue}
+		Test Ref & Req being tested & Test Content & Input & Output & Pass Criteria \\ \hline
+		AND-7 & FR3 & User adds new plant & User presses ‘+’ button in Plant list view & User is shown an overlay containing text fields for the Latin and common names, a cancel button and a submit button is are visible choices & User is shown the add new plant page correctly \\ \hline
+		AND-8 & FR3 & User doesn’t know all details about a plant not in the list & User enters any text into either plant name text field, writes a comment or takes a photo and submits & User is prompted to confirm the details are complete & Prompt is displayed \\ \hline
+		AND-9 & FR3 & User adds photo of plant from gallery & User presses 'add photo' button and selects 'From Gallery' & Phone gallery is displayed and the user may select one of the photos & User is able to select photo from gallery \\ \hline
+		AND-10 & FR3 & User adds photo of plant from camera & User presses 'add photo' button and selects 'From Camera' & Phone Camera is opened & User is able to take photo with camera \\ \hline
+		AND-11 & FR4 & Photo is added to record & Take a photo for either option & Picture is shown & The picture should be added to the record and displayed as such \\ \hline	
+		AND-12 & FR2 &  User data screen – Fullname field & User enters strings of valid characters: John Smith, all other fields contain valid values to prevent invalid promts & User is taken to choose site screen & User is take to appropriate screen and the next button will not issue a warning. \\ \hline
+		\hline
+		\rowcolor{Blue}
+		Test Ref & Req being tested & Test Content & Input & Output & Pass Criteria \\ \hline
+		\end{tabular}
+		
+		\begin{tabular}{| p{1.5cm} | p{1.8cm} | p{3cm} | p{2cm} | p{3cm} | p{3cm} | }
+		\hline
+		\rowcolor{Blue}
+		Test Ref & Req being tested & Test Content & Input & Output & Pass Criteria \\ \hline
+		AND-13 & FR2 & User data screen – Fullname field & User enters strings of invalid characters in name field:@-6, all other fields contain valid values to prevent invalid promts & The user is told their input is in an invalid format and kept on that screen & The user is kept on the user details screen \\ \hline
+		AND-14 & FR2 &  User data screen – phone number field & User enters a 11 base 10 digits number: 7969044669, all other fields contain valid values & User is taken to site selection screen & User is take to appropriate screen and the next button will not issue a warning. \\ \hline
+		AND-15 & FR2 &  User data screen – phone number field & User enters anything other than 11 base 10 digits (e.g. "abcdefghijk"), all other fields contain valid values & The user is told their input is in an invalid format and kept on that screen & The user is kept on the login screen \\ \hline
+		AND-16 & FR2 &  User data screen – email field & User enters a sequence of characters in email address format (e.g. "john.smith@genericemail.com"), all other fields contain valid values  & User is taken to site selection screen & User is take to appropriate screen and the next button will not issue a warning. \\ \hline
+		AND-17 & FR2 &  User data screen – email field & User enters any sequence of characters that isn't in email address format (e.g. "notanemailatall.com"), all other fields contain valid values & The user is told their input is in an invalid format and kept on that screen & The user is kept on the login screen \\ \hline
+		AND-18 & FR2 & User data screen details remembered & Start application & User details input page with filled fields displayed & User details input page is displayed correctly \\ \hline
+		\hline
+		\rowcolor{Blue}
+		Test Ref & Req being tested & Test Content & Input & Output & Pass Criteria \\ \hline
+	\end{tabular}
+	
+\end{center}
+
+
+\section{Document History}
+\begin{tabular}{| p{1.5cm} | p{1.5cm} | p{2cm} | p{7cm} | p{2cm} |}
+	\hline
+	Version & CCF No. & Date & Changes & Changed By \\ \hline
+	0.1 & N/A & 08.11.2014 & Original draft & FRF1 \\ \hline
+	1.0 & N/A & 11.11.2014 & Release & FRF1 \\ \hline
+	1.1 & N/A & ? & Update/Overhaul. No idea on date, document history filled in by STA17 & Bill Gordon \\ \hline
+	1.2 & N/A & 10.02.2015 & Updates to Android Tests & STA17 \\ \hline
+\end{tabular}
+
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
+\end{document}
