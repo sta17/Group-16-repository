@@ -9,7 +9,7 @@
 \usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
 \usepackage{csvsimple}
 \usepackage{array}
-
+\usepackage{microtype}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -30,11 +30,10 @@
 \thispagestyle{empty}
 
 \begin{raggedright}
-\textbf{Authors:} Fredrik Flottum, Steven Aanetsen, Ben Pascoe, William Lockhart-Richardson, Dan Fish Fryer, Jordon Boswell, Stoyan Vatov, Kieran Stone, Thomas Wood-Hopps, John Hooper\\
+\textbf{Authors:} Fredrik Flottum, Steven Aanetsen, Ben Pascoe, William Lockhart-Richardson, Dan Fryer, Jordon Boswell, Stoyan Vatov, Kieran Stone, Thomas Wood-Hopps, John Hooper\\
 \textbf{Config Ref:} S\_16\_TEST\_01\\
-\textbf{Version:} 1.0\\
+\textbf{Version:} 1.3\\
 \textbf{Status:} Release\\
-
 \end{raggedright}
 
 \vfill
@@ -141,6 +140,7 @@ These tests are derived from the requirement specification \cite{reqspec} for th
 		AND-10 & FR3 & User adds photo of plant from camera & User presses 'add photo' button and selects 'From Camera' & Phone Camera is opened & User is able to take photo with camera \\ \hline
 		AND-11 & FR4 & Photo is added to record & Take a photo for either option & Picture is shown & The picture should be added to the record and displayed as such \\ \hline	
 		AND-12 & FR2 &  User data screen – Fullname field & User enters strings of valid characters: John Smith, all other fields contain valid values to prevent invalid promts & User is taken to choose site screen & User is take to appropriate screen and the next button will not issue a warning. \\ \hline
+		AND-13 & FR2 & User data screen – Fullname field & User enters strings of invalid characters in name field:@-6, all other fields contain valid values to prevent invalid promts & The user is told their input is in an invalid format and kept on that screen & The user is kept on the user details screen \\ \hline
 		\hline
 		\rowcolor{Blue}
 		Test Ref & Req being tested & Test Content & Input & Output & Pass Criteria \\ \hline
@@ -150,7 +150,6 @@ These tests are derived from the requirement specification \cite{reqspec} for th
 		\hline
 		\rowcolor{Blue}
 		Test Ref & Req being tested & Test Content & Input & Output & Pass Criteria \\ \hline
-		AND-13 & FR2 & User data screen – Fullname field & User enters strings of invalid characters in name field:@-6, all other fields contain valid values to prevent invalid promts & The user is told their input is in an invalid format and kept on that screen & The user is kept on the user details screen \\ \hline
 		AND-14 & FR2 &  User data screen – phone number field & User enters a 11 base 10 digits number: 7969044669, all other fields contain valid values & User is taken to site selection screen & User is take to appropriate screen and the next button will not issue a warning. \\ \hline
 		AND-15 & FR2 &  User data screen – phone number field & User enters anything other than 11 base 10 digits (e.g. "abcdefghijk"), all other fields contain valid values & The user is told their input is in an invalid format and kept on that screen & The user is kept on the login screen \\ \hline
 		AND-16 & FR2 &  User data screen – email field & User enters a sequence of characters in email address format (e.g. "john.smith@genericemail.com"), all other fields contain valid values  & User is taken to site selection screen & User is take to appropriate screen and the next button will not issue a warning. \\ \hline
